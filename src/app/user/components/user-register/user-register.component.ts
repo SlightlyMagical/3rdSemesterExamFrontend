@@ -20,6 +20,7 @@ export class UserRegisterComponent implements OnInit {
   constructor(private _userService : UserService) { }
 
   ngOnInit(): void {
+
   }
 
   registerUser() {
@@ -29,8 +30,10 @@ export class UserRegisterComponent implements OnInit {
     this._userService.createUser(input).subscribe(
       success => {
         //this._router.navigateByUrl("tournaments/details/" + success.id);
+        alert("Registration complete! Welcome onbard, " + success.username + "!");
       },
       err => {
+        alert(err["error"]);
       });
   }
 

@@ -1,14 +1,16 @@
 <div class="register-form">
 <div class="row">
     <div class="col-6 offset-3">
+        <h1 id="title">Register Account</h1>
+
         <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
             <div class="row">
 
                 <!-- Coach -->
                 <div class="col-6">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" formControlName="usertype" value="Coach">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault1" formControlName="usertype" value="Coach">
+                        <label class="form-check-label" for="usertype">
                           I want to coach
                         </label>
                       </div>
@@ -17,8 +19,8 @@
                 <!-- Client -->
                 <div class="col-6">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" formControlName="usertype" value="Client" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
+                        <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault2" formControlName="usertype" value="Client" checked>
+                        <label class="form-check-label" for="usertype">
                           I want to learn
                         </label>
                     </div>
