@@ -8,7 +8,7 @@ import { TokenDto } from '../dtos/token-dto';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
   isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
 
@@ -17,7 +17,7 @@ export class AuthServiceService {
 
   login(loginDto: LoginUserDto): Observable<TokenDto> {
     return this._http
-      .post<TokenDto>(environment.getApiAddress() + "authentication", loginDto)
+      .post<TokenDto>(environment.getApiAddress() + "auth", loginDto)
       .pipe(
         tap(token => {
           if (token && token.token) {
