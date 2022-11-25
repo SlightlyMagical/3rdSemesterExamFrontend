@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginUserDto } from '../dtos/login-user-dto';
+import { AuthServiceService as AuthService } from '../services/auth-service.service';
 import { UserService } from '../services/userservice.service';
 
 @Component({
@@ -15,13 +17,21 @@ export class UserLoginComponent implements OnInit {
   });
 
 
-  constructor(private _userService : UserService) { }
+  constructor(private _authService : AuthService) { }
 
   ngOnInit(): void {
   }
 
   login() {
     // TODO: Handle authentication.
+    let loginDto = this.loginForm.value as LoginUserDto;
+
+    this._authService.login(loginDto).subscribe(
+      success => {
+        alert(success.token);
+      },
+      err => alert(err)
+    );
   }
 
 }
