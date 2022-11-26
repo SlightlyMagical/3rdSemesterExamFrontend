@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginUserDto } from '../dtos/login-user-dto';
-import { AuthService as AuthService } from '../services/auth-service.service';
-import { UserService } from '../services/userservice.service';
+import { LoginUserDto } from 'src/app/dtos/login-user-dto';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-user-login',

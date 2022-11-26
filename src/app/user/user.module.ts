@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { UserLoginComponent } from '../user-login/user-login.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 
 
 
