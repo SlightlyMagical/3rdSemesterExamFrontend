@@ -23,12 +23,12 @@ export class AuthService {
           if (token && token.token) {
             localStorage.setItem("token", token.token);
             this.isLoggedIn$.next(token.token);
-          } else this.logout();
+          } else this.logOut();
         })
       )
   }
 
-  logout() {
+  logOut() {
     this.isLoggedIn$.next(null);
     localStorage.removeItem("token");
   }
