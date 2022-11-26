@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userservice.service';
 import { RegisterUserDto } from '../../../dtos/register-user-dto';
 
@@ -17,7 +18,7 @@ export class UserRegisterComponent implements OnInit {
     password: new FormControl("", [Validators.required]),
   });
 
-  constructor(private _userService : UserService) { }
+  constructor(private _userService : UserService, private _router : Router) { }
 
   ngOnInit(): void {
 
@@ -29,8 +30,8 @@ export class UserRegisterComponent implements OnInit {
     // TODO: Make call to the api.
     this._userService.createUser(input).subscribe(
       success => {
-        //this._router.navigateByUrl("tournaments/details/" + success.id);
         alert("Registration complete! Welcome onbard, " + success.username + "!");
+        this._router.navigateByUrl("login");
       },
       err => {
         alert(err["error"]);
