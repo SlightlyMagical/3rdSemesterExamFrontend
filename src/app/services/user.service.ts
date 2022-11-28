@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RegisterUserDto } from '../dtos/register-user-dto';
+import { UpdateUserDto } from '../dtos/update-user-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class UserService {
 
   createUser(input : RegisterUserDto) : Observable<RegisterUserDto> {
     return this._http.post<RegisterUserDto>(environment.getApiAddress() + 'register', input);
+  }
+
+  updateUser(input : UpdateUserDto) : Observable<UpdateUserDto> {
+    return this._http.put<UpdateUserDto>(environment.getApiAddress() + 'update', input);
   }
 }
