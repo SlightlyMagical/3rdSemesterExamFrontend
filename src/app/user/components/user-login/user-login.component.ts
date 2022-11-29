@@ -22,14 +22,11 @@ export class UserLoginComponent implements OnInit {
   }
 
   login() {
-    // TODO: Handle authentication.
     let loginDto = this.loginForm.value as LoginUserDto;
 
-    this._authService.login(loginDto).subscribe(
-      success => {
-        alert("You have been successfully logged in, " + loginDto.username + "!");
-      },
-      err => alert(err["error"])
-    );
+    this._authService.login(loginDto).subscribe({
+      complete: () => alert("You have been successfully logged in, " + loginDto.username + "!"),
+      error: (e) => alert(e["error"]),
+    });
   }
 }

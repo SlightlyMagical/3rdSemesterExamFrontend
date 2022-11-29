@@ -14,10 +14,10 @@ export class UserService {
   }
 
   createUser(input : RegisterUserDto) : Observable<RegisterUserDto> {
-    return this._http.post<RegisterUserDto>(environment.getApiAddress() + 'register', input);
+    return this._http.post<RegisterUserDto>(environment.getApiAddress() + 'user', input);
   }
 
   updateUser(input : UpdateUserDto) : Observable<UpdateUserDto> {
-    return this._http.put<UpdateUserDto>(environment.getApiAddress() + 'update', input);
+    return this._http.put<UpdateUserDto>(environment.getApiAddress() + 'user', input);
   }
 }

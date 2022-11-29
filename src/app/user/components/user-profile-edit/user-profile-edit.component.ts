@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UpdateUserDto } from 'src/app/dtos/update-user-dto';
+import { HasherHelper } from 'src/app/helpers/hasher-helper';
+import { UserHelper } from 'src/app/helpers/user-helper';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -23,12 +25,13 @@ export class UserProfileEditComponent implements OnInit {
 
   update() {
     let dto = this.updateForm.value as UpdateUserDto;
+    dto.id = UserHelper.getUserId();
     this._userService.updateUser(dto).subscribe({
       error: (e) => {
         alert(e["error"]);
       },
       complete: () => {
-        alert("Updated successfully!");
+        alert("Profile updated successfully!");
       }
     });
   }
