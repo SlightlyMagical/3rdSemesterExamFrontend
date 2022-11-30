@@ -15,6 +15,7 @@ export class UserProfileEditComponent implements OnInit {
   updateForm = new FormGroup({
     //username: new FormControl("", [Validators.required]),
     //email: new FormControl("", [Validators.required]),
+    oldPassword: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required]),
   });
 
