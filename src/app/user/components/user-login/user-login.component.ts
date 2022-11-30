@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginUserDto } from 'src/app/dtos/login-user-dto';
-import { AuthService } from 'src/app/services/auth-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-login',
@@ -22,14 +22,11 @@ export class UserLoginComponent implements OnInit {
   }
 
   login() {
-    // TODO: Handle authentication.
     let loginDto = this.loginForm.value as LoginUserDto;
 
-    this._authService.login(loginDto).subscribe(
-      success => {
-        alert("You have been successfully logged in, " + loginDto.username + "!");
-      },
-      err => alert(err["error"])
-    );
+    this._authService.login(loginDto).subscribe({
+      complete: () => alert("You have been successfully logged in, " + loginDto.username + "!"),
+      error: (e) => alert(e["error"]),
+    });
   }
 }

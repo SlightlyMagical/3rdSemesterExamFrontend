@@ -4,13 +4,14 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoginUserDto } from '../dtos/login-user-dto';
 import { TokenDto } from '../dtos/token-dto';
+import { UserHelper } from '../helpers/user-helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
+  isLoggedIn$ = new BehaviorSubject<any | null>(this.getToken());
 
   constructor(private _http: HttpClient) {
   }
@@ -21,8 +22,9 @@ export class AuthService {
       .pipe(
         tap(token => {
           if (token && token.token) {
-            localStorage.setItem("token", token.token);
-            this.isLoggedIn$.next(token.token);
+            UserHelper.setUserToken(token.token);
+            UserHelper.setUserId(token.userId);
+            this.isLoggedIn$.next(token);
           } else this.logOut();
         })
       )
@@ -30,11 +32,11 @@ export class AuthService {
 
   logOut() {
     this.isLoggedIn$.next(null);
-    localStorage.removeItem("token");
+    UserHelper.setUserToken(null);
   }
 
   getToken() : string | null {
-    return localStorage.getItem("token");
+    return UserHelper.getUserToken();
   }
 
   isLoggedIn() {
