@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RegisterUserDto } from '../dtos/register-user-dto';
 import { UpdateUserDto } from '../dtos/update-user-dto';
+import { UserDto } from '../dtos/user-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class UserService {
 
   updateUser(input : UpdateUserDto) : Observable<UpdateUserDto> {
     return this._http.put<UpdateUserDto>(environment.getApiAddress() + 'user', input);
+  }
+
+  getAllUsers() : Observable<UserDto[]> {
+    return this._http.get<UserDto[]>(environment.getApiAddress() + 'user');
   }
 }
