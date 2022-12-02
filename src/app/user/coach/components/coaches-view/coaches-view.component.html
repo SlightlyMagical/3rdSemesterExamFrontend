@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-8 offset-2" *ngIf="coaches.length == 0; else hasCoaches">
+        <h1 class="text-center" [innerText]="errorMessage">Loading...</h1>
+    </div>
+
+    <ng-template #hasCoaches>
+        <div class="col-8 offset-2">
+            <div class="row">
+                <div class="col-6 offset-3 coach-box no-padding" *ngFor="let coach of coaches">
+                    <div class="info row">
+                        <div class="col-1 no-padding">
+                            <img class="img-fluid thumbnail rounded" src="https://pbs.twimg.com/media/FDxyjj9XoA8nmau?format=jpg&name=large"/>
+                        </div>
+                        <div class="col">
+                            <a class="overhead" routerLink="/coach/view/{{coach.id}}">{{coach.username}}</a>
+                            <!-- <p class="undertitle">{{coach.usertype}}</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

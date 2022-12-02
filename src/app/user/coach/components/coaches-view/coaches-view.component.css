@@ -1,0 +1,46 @@
+.coach-box {
+    background-color: #49494957;
+    border-radius: 2%;
+    margin-bottom: 2.5%;
+}
+
+.coach-box:first {
+    background-color: #49494957;
+    border-radius: 2%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.coach-box .info {
+    margin: 0.5%;
+}
+
+.coach-box .info .overhead,
+.coach-box .info .undertitle {
+    margin: 0;
+    text-decoration: none;
+    color: #000;
+}
+
+.coach-box .info .overhead:hover,
+.coach-box .info .undertitle:hover {
+    color: #4a47474a;
+}
+
+.coach-box .info .overhead {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.coach-box .info .undertitle {
+    font-size: 18px;
+}
+
+.coach-box .info .thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+.no-padding {
+    padding: 0;
+}

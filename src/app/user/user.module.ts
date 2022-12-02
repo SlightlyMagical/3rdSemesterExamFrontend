@@ -7,6 +7,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserProfileViewComponent } from './components/user-profile-view/user-profile-view.component';
 import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
+import { CoachViewComponent } from './coach/components/coach-view/coach-view.component';
+import { CoachesViewComponent } from './coach/components/coaches-view/coaches-view.component';
 
 
 
@@ -15,7 +17,9 @@ import { UserProfileEditComponent } from './components/user-profile-edit/user-pr
     UserRegisterComponent,
     UserLoginComponent,
     UserProfileViewComponent,
-    UserProfileEditComponent
+    UserProfileEditComponent,
+    CoachViewComponent,
+    CoachesViewComponent
   ],
   imports: [
     CommonModule,
