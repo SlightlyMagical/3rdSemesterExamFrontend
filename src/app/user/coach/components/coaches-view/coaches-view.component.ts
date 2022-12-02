@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable, pipe, tap } from 'rxjs';
 import { UserDto } from 'src/app/dtos/user-dto';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CoachesViewComponent implements OnInit {
   coaches: UserDto[] = [];
-  error : boolean = false;
+  errorMessage : string = "Loading...";
 
   constructor(private _userService : UserService) { }
 
@@ -27,9 +26,12 @@ export class CoachesViewComponent implements OnInit {
               }
           }
         },
+        complete: () => {
+          if(this.coaches.length == 0)
+            this.errorMessage = "No coaches available.";
+        },
         error: (e) => {
-          this.error = true;
-        alert(e["error"]);
+          this.errorMessage = "Error :(";
         },
       });
   }

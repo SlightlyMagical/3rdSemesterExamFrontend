@@ -1,8 +1,14 @@
 .coach-box {
     background-color: #49494957;
     border-radius: 2%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 2.5%;
+}
+
+.coach-box:first {
+    background-color: #49494957;
+    border-radius: 2%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
 }
 
 .coach-box .info {
